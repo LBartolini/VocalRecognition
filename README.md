@@ -152,12 +152,9 @@ We saved about 10 million values from our original array, this will heavily redu
 # Data Batching 
 
 Now that we have our data ready for the training we need to divide it into batches.
-We decided to create *batches 1 second long* but we could have decided to have 2 seconds or even 0.5 seconds.
-The problems with batches of 2 seconds and 0.5 seconds are the dimension of the batch itself and the total number of batches.
-In the first case, we would have fewer batches but each of them would have a big quantity of information inside.
-In the second case, we would have smaller batches but we would compensate with the number of batches.
-In our opinion, 1 second is the right choice to have an acceptable number of batches each of them with an acceptable quantity of information.
-Think about it, would you be capable to recognise one of your friends in just 0.5 seconds?
+We decided to create *batches 0.5 seconds long* but we could have decided to have 2 seconds or 1 seconds.
+The problems with batches of 2 or 1 seconds are the dimension of the batch itself and the total number of batches that, in this case. is not big enough to allow a good training.
+In our opinion, 0.5 seconds is the right choice to have an large number of batches each of them with an acceptable quantity of information.
 
 Let's get into the code.
 
@@ -301,3 +298,27 @@ This method does this thing automatically and not just once but multiple times, 
 
 The estimations are the times we want it to change the position of *train and test*.
 The blue rectangles are the Training Portions of X and the green ones are the Test Portions of X.
+
+Now let's talk about the importance of the *Number of batches*.
+To find the perfect number of batches we created a function called `graph` that train the model every time with a larger X and y every time. 
+This function returns the mean values for train and test.
+this is what we see if we plot them:
+
+![Dimension of X](./Plots/Accuracy_Batches.png)
+
+The opaque areas near the blue and purple lines are the variance of the line, so it means that the real value can be in between the upper and the lower limit of them.
+The less opaque they are, the more accurate the lines are.
+Looking closely at the plot we can see that the accuracy grows the more data you give to the model.
+This is why we decided to use smaller batches to have more of them to feed the model.
+
+At the end, our best model reached:
+
+```Accuracy on Train : 98% +/- 0.1%```
+
+```Accuracy on Test  : 88% +/- 1%```
+
+---
+
+__Project made by Lorenzo Bartolini and Amos Staropoli from Gobetti-Volta School, Bagno a Ripoli (Florence).__
+
+---

@@ -259,3 +259,47 @@ So this is the last part of this module before we go trough the process of train
 
 ---
 
+# ML Model
+
+So as I said we are using Scikit-Learn to help us in the project of training.
+Let's start from the model we've chosen to use, a *Support Vector Machine*, and we have initialized it like this: 
+```python 
+from sklearn.svm import SVC
+
+svc = SVC(gamma=0.06, C=10000)  
+```
+
+So how does a Support Vector Machine (*SVM*) works?
+The following image can help us:
+
+![SVM Hyperplane](./Images/SVM_hyperplane.png)
+
+Let's start talking about the left one we then move to the right.
+the *SVM* initially places an *Hyperplane* and tries to place it in order to separate, *linearly* or *non-linearly*, inputs of each class.
+An Hyperplane can be in 2-d or in Multi Dimension, in our case we have about 15 dimensions.
+How is SVM able to do so? Take a look at the next image:
+
+![SVM Support Vector](./Images/SVM_SupportVectors.png)
+
+The two classes are `NO` on the left side and `YES` on the right one.
+What are these *Support Vector*? 
+They are just the closest input point to the Hyperplane, they are so important because all the SVM algorithms are based on this distance *SupportVector <---> Hyperplane*. 
+
+---
+
+# Training Time
+
+We finally reached the final step, in this paragraph we are going through the process of *Training* and we'll also be seeing the importance of the *Number of batches* and if this number influences the final result.
+
+We are going to use once again *Sklearn*'s method called `Cross Validate`  to train our model.
+What are the advantages of using this method? Why couldn't you use the typical `fit`?
+
+The reason is because when you use *fit* you have to manually divide `X` and `y` into *train and test* so that the accuracy you get isn't influenced by the training data.
+This method does this thing automatically and not just once but multiple times, as we'll see it's a parameter of the function `cross_validate`, changing the position every time.
+
+![Cross Validate](./Images/cross_validate.png)
+
+The estimations are the times we want it to change the position of *train and test*.
+The blue rectangles are the Training Portions of X and the green ones are the Test Portions of X.
+
+---

@@ -8,9 +8,14 @@ For this reson we chose to use 2 audio tracks that we found on Youtube long abou
 
 The first one is the one we called Prince in the Python Code.
 * https://www.youtube.com/watch?v=zKtdVseMNAM
+* https://drive.google.com/file/d/1RhP0Yf6Ez62lEtv4R66VUbBHl4T0-oxG/view?usp=sharing
 
 The second one is the one we called Bedroom in the Python Code.
 * https://www.youtube.com/watch?v=6nA_Je_8i-U&t=1168s
+* https://drive.google.com/file/d/1aZo9ahS9YiaGNVc5dOrQPFm29Kyb5VDM/view?usp=sharing
+
+You can either download by your own using an online converter and the Youtube video link or directly from our Google Drive.
+In both cases remember to put them in a directory called Audio or if you prefer change the code and chose another one.
 
 ---
 
